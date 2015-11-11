@@ -14,8 +14,12 @@ post '/signup' do
 	@new_user = User.new(params[:user])
 	if @new_user.save!
 		session[:user_id] = @new_user.id
-		redirect '/dashboard'
+		redirect to '/profile'
 	else
 		erb :"static/signup"
 	end
+end
+
+get '/profile' do
+erb :"static/profile"
 end			
