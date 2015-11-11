@@ -1,5 +1,7 @@
 module SessionHelper
 
-#put non business logic in here
+def logout_user
+	session.delete :user
+end	
 
 end	

@@ -1,4 +1,7 @@
 <h1>Sign In to Continue!</h1>
+<% if @message %>
+	<p><%= @message %></p>	
+<% end %>
 
 <form action="/signin", method="POST">
 	<label>Email: </label>

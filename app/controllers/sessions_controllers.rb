@@ -9,7 +9,7 @@ post '/signin' do
 		redirect to "/profile/#{@user.id}"
 	else
 		@message = "Email or password is invalid"
-		erb :"static/index"
+		erb :"static/login"
 	end		
 end
 
@@ -18,4 +18,6 @@ get "/profile/:id" do
 end	
 
 get '/logout' do
+	logout_user
+	redirect to '/'
 end	
