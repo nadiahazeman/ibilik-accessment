@@ -1,0 +1,26 @@
+<h1>Please Sign Up to Continue</h1>
+
+<div>
+  <form id="sign_up_form" action="/users/create" method="post">
+    <p>
+      <label>Full Name: </label>
+      <input type="text" name="user[fullname]" placeholder="Full Name" data-validation="length" data-validation-length="min2" required>
+    </p>
+    <p>
+      <label>Email: </label>
+      <input type="email" name="user[email]" placeholder="Email Address" data-validation="email" data-validation-error-msg="Please enter a valid e-mail" required>
+    </p>
+    <p>
+      <label>Password: </label>
+      <input type="password" name="user[password]" placeholder="Password" data-validation="length" data-validation-length="5-32">
+    </p>
+    <p>
+      <input type="submit" value="Sign Up">
+    </p>
+  </form>
+
+</div>
+
+<h3>Already have an account? Make life easier by signing in!</h3>
+
+<a href="/login"><button type="button" name="login_button">Log In!</button></a>
