@@ -1,7 +1,10 @@
 <h1>hello! see all of your advertised properties here!</h1>
 
-<% @properties.each_with_index do |a, index| %>
-<%byebug%>
-<a href="/properties/<%=a.id%>">
-	<p><%="#{index + 1}. #{a.description}"%></p></a>
-<% end %>
+	<h2>Latest Properties:</h2>
+  <% @properties.each_with_index do |p, index| %>
+  <% user = User.find_by(id: p.user_id) %>
+	  <a href="/properties/<%= p.id %>">
+	      <p><%= "#{index + 1}. #{p.description}" + "@" + "#{p.location}" %> <%= "--" + "#{current_user.fullname}" %></p>
+	  </a>
+	<% end %>
+

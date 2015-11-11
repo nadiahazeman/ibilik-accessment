@@ -13,8 +13,8 @@ post '/signin' do
 end
 
 get "/profile/:id" do
-	@properties = Property.all
 	@user = current_user
+	@properties = Property.all
 	erb :"static/profile"
 end	
 

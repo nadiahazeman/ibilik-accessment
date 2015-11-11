@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	# This is Sinatra! Remember to create a migration!
-	has_many :rooms
+	has_many :properties
 	has_many :comments
 
 	validates :email, uniqueness: true,

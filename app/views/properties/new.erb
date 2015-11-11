@@ -10,7 +10,8 @@
 <% end %>
 
 <div>
-  <form id="sign_up_form" action="/properties" method="post">
+  <form id="new_property_form" action="/properties" method="post">
+
     <p>
       <label>Describe Your Room!: </label>
       <input type="text" name="property[description]" placeholder="Description" data-validation="length" data-validation-length="min2" required>
@@ -26,6 +27,8 @@
     <p>
       <input type="submit" value="Advertise!">
     </p>
+
+    <input type="hidden" name="property[user_id]" value="<%= current_user.id%>">
   </form>
 
 </div>
