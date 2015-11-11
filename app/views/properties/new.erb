@@ -1,0 +1,31 @@
+<a href="/"><button type="button" name="home_button">Home</button></a>
+<a href="/logout"><button type="button" name="logout_button">Log Out!</button></a>
+<a href="/"><button type="button" name="find_button">Find a Room!</button></a>
+<a href="/properties/new"><button type="button" name="rent_button">Advertise Your Room!</button></a>
+<a href="/"><button type="button" name="list_booked_button">Your Booked Rooms</button></a>
+
+<h1>New property!</h1>
+<% if @error_message %>
+  <p><%= @error_message %></p>  
+<% end %>
+
+<div>
+  <form id="sign_up_form" action="/properties" method="post">
+    <p>
+      <label>Describe Your Room!: </label>
+      <input type="text" name="property[description]" placeholder="Description" data-validation="length" data-validation-length="min2" required>
+    </p>
+    <p>
+      <label>Room Location Please!: </label>
+      <input type="text" name="property[location]" placeholder="Location" data-validation="length" data-validation-length="5-32">
+    </p>
+    <p>
+      <label>Name Your Price! (RM): </label>
+      <input type="text" name="property[price]" placeholder="Full Name" data-validation="length" data-validation-length="min2" required>
+    </p>
+    <p>
+      <input type="submit" value="Advertise!">
+    </p>
+  </form>
+
+</div>

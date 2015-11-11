@@ -3,7 +3,6 @@ helpers SessionHelper
 
 post '/signin' do
 	@user = User.authenticate(params[:email], params[:password])
-	byebug
 	if @user
 		session[:user_id] = @user.id
 		redirect to "/profile/#{@user.id}"
@@ -14,6 +13,8 @@ post '/signin' do
 end
 
 get "/profile/:id" do
+	@properties = Property.all
+	@user = current_user
 	erb :"static/profile"
 end	
 
@@ -21,3 +22,4 @@ get '/logout' do
 	logout_user
 	redirect to '/'
 end	
+

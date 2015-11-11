@@ -21,5 +21,7 @@ post '/signup' do
 end
 
 get '/profile' do
+	@properties = Property.all
+	@user = current_user
 erb :"static/profile"
 end			
