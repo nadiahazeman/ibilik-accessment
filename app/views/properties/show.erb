@@ -1,10 +1,12 @@
-<h1>hello! see all of your advertised properties here!</h1>
+<h2>More details on your property</h2>
 
-	<h2>Latest Properties:</h2>
-  <% @properties.each_with_index do |p, index| %>
-  <% user = User.find_by(id: p.user_id) %>
-	  <a href="/properties/<%= p.id %>">
-	      <p><%= "#{index + 1}. #{p.description}" + "@" + "#{p.location}" %> <%= "--" + "#{current_user.fullname}" %></p>
-	  </a>
-	<% end %>
+<p>Uploaded by: <%= @user.fullname %></p>
+<p>Description: <%=@property.description %></p>
+<p>Located at: <%=@property.location %></p>
+<p>How much?: <%=@property.price %></p>
+
+<a href="/properties/<%=@property.id%>/edit"><button type="button" name="update_button">Update!</button></a>
+<a href="/properties/<%=@property.id%>/delete"><button type="button" name="delete_button">Delete!</button></a>
+
+
 

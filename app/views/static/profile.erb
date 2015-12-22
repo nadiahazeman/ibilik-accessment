@@ -1,11 +1,19 @@
-<a href="/"><button type="button" name="home_button">Home</button></a>
 <a href="/logout"><button type="button" name="logout_button">Log Out!</button></a>
 <a href="/"><button type="button" name="find_button">Find a Room!</button></a>
 <a href="/properties/new"><button type="button" name="rent_button">Advertise Your Room!</button></a>
 <a href="/"><button type="button" name="list_booked_button">Your Booked Rooms</button></a>
 
 
-<h1>Welcome (put ruby code for user) ! </h1>
-<h2>Need a room? No worries! Check out all available rooms here</h2>
-<h2>Strapped for cash? Earn quick cash by renting your extra rooms!</h2>
+<h1>Welcome! </h1>
+<h1>hello! see all of your advertised properties here!</h1>
+
+	<h2>Latest Properties:</h2>
+  <% @properties.each_with_index do |p, index| %>
+  <% user = User.find_by(id: p.user_id) %>
+	  <a href="/properties/<%= p.id %>">
+	      <p><%= "#{index + 1}. #{p.description}" + "@" + "#{p.location}" %> <%= "--" + "#{current_user.fullname}" %></p>
+	  </a>
+	<% end %>
+
+
 

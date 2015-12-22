@@ -7,7 +7,6 @@ get "/properties/new" do
 end
 
 #create new property listing
-
 post '/properties' do
 	@user = current_user
 	@property = Property.new(params[:property])
@@ -17,15 +16,25 @@ post '/properties' do
 		@error_message = "Please populate all fields!"
 		erb :'/properties/new'
 	end
-end 
-
-#show the property
-get '/properties/:id' do
-    @user = current_user
-    
-    @properties = Property.where(user_id: @user.id)
-    byebug
-    @alert = "You do not have any listed properties"
-
-    erb :'/properties/show'
 end
+
+#show property listings
+get '/properties/:id' do
+	@property = Property.find(params[:id])
+	@user = User.find_by(id: @property.user_id)
+	erb :'/properties/show'
+end
+
+
+#render the edit property form
+get '/properties/:id/edit' do
+	@property = Property.find(params[:id])
+	erb :'/properties/edit'
+end
+
+#update the property
+#patch '/properties/:id' do
+
+
+#delete the property
+
