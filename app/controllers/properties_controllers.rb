@@ -25,7 +25,6 @@ get '/properties/:id' do
 	erb :'/properties/show'
 end
 
-
 #render the edit property form
 get '/properties/:id/edit' do
 	@property = Property.find(params[:id])
@@ -33,7 +32,16 @@ get '/properties/:id/edit' do
 end
 
 #update the property
-#patch '/properties/:id' do
+post '/properties/:id' do
+	@property = Property.find(params[:id])
+	if @property.update(params[:property])
+		redirect to "/properties/#{@property.id}"
+	else
+		erb :'/properties/edit'
+	end
+end
+
+
 
 
 #delete the property
