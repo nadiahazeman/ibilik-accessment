@@ -41,8 +41,9 @@ post '/properties/:id' do
 	end
 end
 
-
-
-
 #delete the property
-
+get '/properties/:id/delete' do
+	@property = Property.find(params[:id])
+	@property.destroy
+	redirect to '/profile'
+end
